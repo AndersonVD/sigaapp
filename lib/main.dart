@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sigaapp/screens/home.dart';
+import 'package:sigaapp/screens/login.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
-  }
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: "Aplicativo",
+    initialRoute: '/',
+    routes: {
+      '/' :    (context) => const Login(),
+      '/home': (context) => const Home(),
+    }
+  ));
 }
