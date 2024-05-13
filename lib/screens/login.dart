@@ -20,13 +20,20 @@ class _Login extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center, // Center the Column vertically
               children: [
+                Text(
+                  "Login",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700, 
+                    fontSize: 32.0
+                  )
+                ),
+                SizedBox(height: 5.0),
                 Input(label: "Usuário"),
                 SizedBox(height: 10.0),
                 Input(label: "Senha"),
                 SizedBox(height: 10.0),
                 Button(
                   label: "Enviar", 
-                  color: Colors.purple, 
                   path: '/home',
                 )
               ],

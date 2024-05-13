@@ -23,7 +23,7 @@ class Button extends StatelessWidget {
           Navigator.pushNamed(context, path.toString());
         },
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(color ?? Colors.black),
+          backgroundColor: WidgetStateProperty.all<Color>(color ?? Colors.green),
           minimumSize: WidgetStateProperty.all(Size(width ?? double.infinity, height ?? 48.0)),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(

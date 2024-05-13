@@ -12,15 +12,8 @@ class _Home extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const  BottomNavigation(),
-      appBar: AppBar(
-        title: const Text("Sigga App"),
-      ),
-      body: const Column(
-        children: [
-        ],
-      ),
+    return const Center(
+      child: BottomBar()
     );
   }
 }
