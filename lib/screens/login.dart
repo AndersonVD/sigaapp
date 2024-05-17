@@ -15,26 +15,28 @@ class _Login extends State<Login> {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(20.0),
-        child:  const Form(
+        child: Form(
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Center the Column vertically
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Login",
+                const Text(
+                  "Login", 
                   style: TextStyle(
-                    fontWeight: FontWeight.w700, 
-                    fontSize: 32.0
+                    fontWeight: FontWeight.w800, 
+                    fontSize: 36
                   )
                 ),
-                SizedBox(height: 5.0),
-                Input(label: "Usuário"),
-                SizedBox(height: 10.0),
-                Input(label: "Senha"),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 5.0),
+                const Input(label: "Usuário"),
+                const SizedBox(height: 10.0),
+                const Input(label: "Senha"),
+                const SizedBox(height: 10.0),
                 Button(
-                  label: "Enviar", 
-                  path: '/home',
+                  label: "Enviar",
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
                 )
               ],
             ),

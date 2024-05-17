@@ -8,8 +8,8 @@ void main() {
     title: "Aplicativo",
     initialRoute: '/',
     routes: {
-      '/' :    (context) => const Login(),
-      '/home': (context) => const Home(),
+      '/' :      (context) => const Login(),
+      '/home':   (context) => const Home(),
     }
   ));
 }

@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:sigaapp/models/subject.dart';
+import 'package:sigaapp/screens/subject/frequency.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+class SubjectDetails extends StatefulWidget {
+  final Subject subject;
+
+  const SubjectDetails({super.key, required this.subject});
 
   @override
-  State<BottomBar> createState() =>
-      _BottomBarState();
+  State<SubjectDetails> createState() => _HomeState();
 }
 
-class _BottomBarState
-    extends State<BottomBar> {
+class _HomeState extends State<SubjectDetails> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-    ),
-    Text(
-      'Index 1: Business',
-    ),
-    Text(
-      'Index 2: School',
-    ),
+  late List<Widget> widgetOptions = <Widget>[
+    Text('Nome: ${widget.subject.name!}'),
+    Frequency(subject: widget.subject),
+    Text('Notas: ${widget.subject.grade!}')
   ];
 
   void _onItemTapped(int index) {
@@ -37,13 +33,13 @@ class _BottomBarState
         title: const Text('Sigga App'),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.subject),
-            label: 'Disciplinas',
+            icon: Icon(Icons.article_rounded),
+            label: 'Notícias',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month),
