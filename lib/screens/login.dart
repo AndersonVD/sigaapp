@@ -4,7 +4,7 @@ import 'package:sigaapp/widgets/input.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
-  
+
   @override
   State<StatefulWidget> createState() => _Login();
 }
@@ -20,13 +20,14 @@ class _Login extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Login", 
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800, 
-                    fontSize: 36
-                  )
+                const Image(
+                  image: AssetImage('assets/images/logo_ifc.png'),
+                  width: 200,
+                  height: 200,
                 ),
+                const Text("Login",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w800, fontSize: 36)),
                 const SizedBox(height: 5.0),
                 const Input(label: "Usuário"),
                 const SizedBox(height: 10.0),
@@ -35,7 +36,7 @@ class _Login extends State<Login> {
                 Button(
                   label: "Enviar",
                   onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/loading');
                   },
                 )
               ],
