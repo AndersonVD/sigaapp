@@ -62,8 +62,15 @@ class _Home extends State<Home> {
                             top: 5, bottom: 5, left: 20, right: 20),
                         child: Card(
                           child: ListTile(
-                            title: Text(subject.name!),
-                            subtitle: Text(subject.frequency!.toString()),
+                            
+                            title: Text(
+                              subject.name!,
+                              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500)
+                            ),
+                            subtitle: Text(
+                              "Frequência: ${subject.frequency!['average']!} Média: ${subject.grade!['average']}",
+                              style: const TextStyle(fontSize: 18)
+                            ),
                             trailing: const Icon(Icons.arrow_forward_ios),
                           ),
                         ),

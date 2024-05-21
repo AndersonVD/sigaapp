@@ -13,6 +13,7 @@ class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         margin: const EdgeInsets.all(20.0),
         child: Form(
@@ -22,12 +23,13 @@ class _Login extends State<Login> {
               children: [
                 const Image(
                   image: AssetImage('assets/images/logo_ifc.png'),
-                  width: 200,
-                  height: 200,
+                  width: 300,
+                  height: 300,
                 ),
-                const Text("Login",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w800, fontSize: 36)),
+                const Text(
+                  "Login",
+                  style:TextStyle(fontWeight: FontWeight.w800, fontSize: 36)
+                ),
                 const SizedBox(height: 5.0),
                 const Input(label: "Usuário"),
                 const SizedBox(height: 10.0),

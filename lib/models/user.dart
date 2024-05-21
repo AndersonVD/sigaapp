@@ -4,11 +4,13 @@ class User {
   String? name;
   String? password;
   List<Subject>? subjects;
+  String? image;
 
   User({
     this.name,
     this.password,
-    this.subjects
+    this.subjects,
+    this.image
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -18,7 +20,8 @@ class User {
     return User(
       name: json['name'],
       password: json['password'],
-      subjects: subjectsList
+      subjects: subjectsList,
+      image: json['image']
     );
   }
 }

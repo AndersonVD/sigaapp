@@ -1,19 +1,22 @@
 class Subject {
   String? name;
   Map<String, String>? frequency;
-  String? grade;
+  Map<String, String>? grade;
+  Map<String, String>? news;
 
   Subject({
     this.name,
     this.frequency,
-    this.grade
+    this.grade,
+    this.news
   });
 
   factory Subject.fromJson(Map<String, dynamic> json) {
     return Subject(
       name : json['name'],
       frequency: Map<String, String>.from(json['frequency']),
-      grade : json['grade']
+      grade : Map<String, String>.from(json['grade']),
+      news : Map<String, String>.from(json['news'])
     );
   }
 }

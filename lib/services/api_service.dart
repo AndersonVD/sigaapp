@@ -20,8 +20,8 @@ Future<User> getUserFromJson(String user, String password) async {
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
   };
 
-  final url = Uri.parse(
-      'http://localhost:8000/sigaa_user_data?username=$user&password=$password');
+  // final url = Uri.parse(
+  //     'http://localhost:8000/sigaa_user_data?username=$user&password=$password');
 
   // final res = await http.get(url, headers: headers);
 
@@ -31,30 +31,64 @@ Future<User> getUserFromJson(String user, String password) async {
   String jsonString = '''
   {
     "user": {
+      "image" : "https://github.com/LuisFelipeRochaMartins.png",
       "name": "John Doe",
       "password": "123",
       "subjects": [
         {
           "name": "Engenharia de Software",
-          "grade": "9.8",
+          "news" : {
+            "Sobre a Greve" : "Olá! Diante do contexto de GREVE da categoria askhdbasdyg uagsvu dvasu gdtast dgsaty dgvay tdvay dtasvy datdvabsdkyvasuhdbashhhjdaskjdhasyudgasdahsaskdjnaiuwgahudyasgdoyawbdakjdnaiudhyasduydasgdowadsjanduiwagyd",
+            "Teste" : "Olá! Diante do contexto de GREVE da categoria",
+            "Teste2" : "Olá! Diante do contexto de GREVE da categoria"
+          },
+          "grade": {
+            "AV1": "7.8",
+            "AV2": "4.2",
+            "average": "6.0",
+            "state": "Aprovado"
+          },
           "frequency": {
-            "2024-05-15": "Presente"
+            "2024-05-15": "Presente",
+            "average": "20%"
           }
         },
         {
           "name": "Banco de Dados I",
-          "grade": "9.8",
+          "news" : {
+            "Sobre a Greve" : "Olá! Diante do contexto de GREVE da categoria",
+            "Teste" : "Olá! Diante do contexto de GREVE da categoria",
+            "Teste2" : "Olá! Diante do contexto de GREVE da categoria"
+          },
+          "grade": {
+            "AV1": "7.8",
+            "AV2": "4.2",
+            "average": "6.0",
+            "state": "Aprovado"
+          },
           "frequency": {
             "2024-05-15": "3 Falta(s)",
             "2024-05-14": "Presente",
-            "2024-05-13": "3 Falta(s)"
+            "2024-05-13": "3 Falta(s)",
+            "average": "20%"
           }
         },
         {
           "name": "Programação Orientada a Objetos",
-          "grade": "9.8",
+          "news": {
+            "Sobre a Greve" : "Olá! Diante do contexto de GREVE da categoria",
+            "Teste" : "Olá! Diante do contexto de GREVE da categoria",
+            "Teste2" : "Olá! Diante do contexto de GREVE da categoria"
+          },
+          "grade": {
+            "AV1": "7.8",
+            "AV2": "4.1",
+            "average": "5.9",
+            "state": "Reprovado"
+          },
           "frequency": {
-            "2024-05-15": "4 Falta(s)"
+            "2024-05-15": "4 Falta(s)",
+            "average": "20%"
           }
         }
       ]
@@ -63,6 +97,6 @@ Future<User> getUserFromJson(String user, String password) async {
   ''';
 
   Map<String, dynamic> userMap = jsonDecode(jsonString)['user'];
-  User _user = User.fromJson(userMap);
-  return _user;
+  User user = User.fromJson(userMap);
+  return user;
 }

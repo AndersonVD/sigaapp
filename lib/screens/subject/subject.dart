@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sigaapp/models/subject.dart';
-import 'package:sigaapp/screens/subject/frequency.dart';
+import 'package:sigaapp/screens/subject/news.dart';
+import 'package:sigaapp/widgets/info_table.dart';
 
 class SubjectDetails extends StatefulWidget {
   final Subject subject;
 
-  const SubjectDetails({super.key, required this.subject});
+  const SubjectDetails({
+    super.key, 
+    required this.subject,
+  });
 
   @override
   State<SubjectDetails> createState() => _HomeState();
@@ -15,9 +19,9 @@ class _HomeState extends State<SubjectDetails> {
   int _selectedIndex = 0;
 
   late List<Widget> widgetOptions = <Widget>[
-    Text('Nome: ${widget.subject.name!}'),
-    Frequency(subject: widget.subject),
-    Text('Notas: ${widget.subject.grade!}')
+    News(subject: widget.subject),
+    InfoTable(values: widget.subject.frequency!, info: "Frequência"),
+    InfoTable(values: widget.subject.grade!, info: "Notas")
   ];
 
   void _onItemTapped(int index) {
@@ -30,7 +34,14 @@ class _HomeState extends State<SubjectDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sigga App'),
+        automaticallyImplyLeading: false,
+        title: const Text("Sigga App"),
+        actions: const [
+          IconButton(
+            onPressed: null,
+            icon: Icon(Icons.person, size: 36, color: Colors.black,)
+          )
+        ],
       ),
       body: Center(
         child: widgetOptions.elementAt(_selectedIndex),
@@ -47,16 +58,17 @@ class _HomeState extends State<SubjectDetails> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            label: 'Notas',
+            label: 'Notas'
           ),
         ],
 
         currentIndex: _selectedIndex,
         selectedLabelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+        selectedItemColor: Colors.green[800],
         unselectedLabelStyle: const TextStyle(fontSize: 16),
-        selectedIconTheme: const IconThemeData(
+        selectedIconTheme: IconThemeData(
           size: 30.0,
-          color: Colors.purple
+          color: Colors.green[700]
         ),
         onTap: _onItemTapped,
       ),
